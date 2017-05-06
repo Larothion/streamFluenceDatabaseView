@@ -10,14 +10,14 @@ module.exports = function(app) {
 		});
 
 		app.get("/dashboard", function(req, res) {
-				db.InfluencerTable.findAll({}).then(function(results) {
+				db.User.findAll({}).then(function(results) {
 					res.render("index", {influencer_data: results});
 				});
 		});
 
 	app.post("/api/sfapi/addchannel", function(req, res) {
 		
-		db.InfluencerTable.create({
+		db.User.create({
 					name: req.body.name,
 					followers: req.body.followers,
 					createdAt: req.body.createdAt
@@ -40,7 +40,6 @@ module.exports = function(app) {
 
 			request(options, function (error, response, body) {
 			  if (error) throw new Error(error);
-			  	console.log("This user is not active...");
 
 			  var info = JSON.parse(body);
 

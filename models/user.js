@@ -1,6 +1,6 @@
 //Sends the Users table where it needs to go.
 module.exports = function(sequelize, DataTypes){
-	var User = sequelize.define("user"{
+	var User = sequelize.define("User",{
 		user_name: {
 			type: DataTypes.STRING,
 			validate: {
@@ -50,16 +50,17 @@ module.exports = function(sequelize, DataTypes){
 			validate: {
 				allowNull: false
 			}
-		}, //Linking the users with the brands
-			{
-				classMethods: {
-					associate: function(models){
-						User.belongsToMany(models.Brand,{
-							as: "Influencers", 
-							through: "brand_influencers",
-							foreignKey: "brandId"
-						});
-					}
+		},
+	},
+			//Linking the users with the brands
+		{
+			classMethods: {
+				associate: function(models){
+					User.belongsToMany(models.Brand,{
+						as: "Influencers", 
+						through: "brand_influencers",
+						foreignKey: "brandId"
+					});
 				}
 			}
 		}
