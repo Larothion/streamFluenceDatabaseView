@@ -10,20 +10,11 @@ module.exports = function(app) {
 		});
 
 		app.get("/dashboard", function(req, res) {
+			console.log("Displaying Tables");
 				db.User.findAll({}).then(function(results) {
 					res.render("index", {influencer_data: results});
 				});
 		});
-
-	app.post("/api/sfapi/addchannel", function(req, res) {
-		
-		db.User.create({
-					name: req.body.name,
-					followers: req.body.followers,
-					createdAt: req.body.createdAt
-
-		});
-	});
 
 
 	/*TWITCH API*/
@@ -40,20 +31,24 @@ module.exports = function(app) {
 
 			request(options, function (error, response, body) {
 			  if (error) throw new Error(error);
-
 			  var info = JSON.parse(body);
 
-				 $.ajax({
-	          		method: "GET"
-	        	}).done(function(response) {
-	        		post("/api/sfapi/addchannel", {body}).success(res.console.log("Database updated"));
 
-				  res.json(info.name + " , " + info.followers + " , " + info.views + " , " 
-				  	+ info.language + " , " + info.url + " , " +  info._id + " , " + info.logo + " , " + info.game);
-	        	});
-		
+
+				db.User.create({
+					display_name: info.display_name,
+					followers: info.followers,
+					views: info.views,
+					game: info.game,
+					user_logo: info.logo,
+					twitch_url: info.url,
+					twitch_id: info._id,
+					language: info.language
+
+				}).then(function(results){
+				res.redirect("/dashboard");
 			});
-	});
 
-}
-
+			 });
+	   });
+	};

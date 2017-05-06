@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Letfr33domring!",
+    "password": "root",
     "database": "streamfluence_db",
     "host": "localhost",
     "dialect": "mysql"
