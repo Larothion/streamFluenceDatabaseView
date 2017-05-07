@@ -1,7 +1,7 @@
 //Exports the brand model to the pages that need the tables.
 module.exports = function(sequelize, DataTypes){
 	//For the Brands table.
-	var Brand = sequelize.define("brand",{
+	var Brand = sequelize.define("Brand",{
 		brand_name: {
 			type: DataTypes.STRING,
 			validate: {
@@ -22,20 +22,18 @@ module.exports = function(sequelize, DataTypes){
 		company_logo: {
 			type: DataTypes.STRING
 		},
-			{
-				classMethods: {
-					associate: function(models){
-						Brand.belongsToMany(models.User,{
-							as: "Employer", 
-							through: "brand_influencers",
-							foreignKey: "influencerId"
-						});
-					}
+	},
+		{
+      		classMethods: {
+        		associate: function(models) {
+               		Brand.belongsToMany(models.User, {
+               			as: "adSource",
+               			through: "brand_influencers",
+						foreignKey: "userId"
+					});
 				}
-			} 
-		}
-	);
-	//Again, need to link this table and the users table to show which users
-	//"belong" to which brands.
+        	}
+      	}
+  	);
 	return Brand;
-}
+};

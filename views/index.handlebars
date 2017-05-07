@@ -1,3 +1,4 @@
+
 <!--  page-wrapper -->
         <div id="page-wrapper">
 
@@ -202,4 +203,19 @@
 
 
         
-
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 text-center" id="top-bar">
+			<h1> StreamFluence Dashboard </h1>
+		</div>
+			<div class="row">
+			  {{#each influencer_data}}
+				<div class="col-xs-12 text-center">
+					<pre>{{this.influencer_id}}  Name: {{this.display_name}} <br> Followers: {{this.followers}}
+					
+					</pre>
+				</div>	
+			  {{/each}}
+			</div>
+	</div>
+</div>
