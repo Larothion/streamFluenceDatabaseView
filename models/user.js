@@ -14,38 +14,28 @@ module.exports = function(sequelize, DataTypes){
 		},
 		followers: {
 			type: DataTypes.BIGINT,
-			
-				allowNull: false
-			
+			allowNull: false	
 		},
 		views: {
 			type: DataTypes.BIGINT,
-			
-				allowNull: false
-			
+			allowNull: false	
 		},
 		twitch_id: {
 			type: DataTypes.BIGINT,
 			allowNull: false
-			
 		},
 		twitch_url: {
-			type: DataTypes.STRING,
-			
-			
-			
+			type: DataTypes.STRING	
 		},
 		user_logo: {
 			type: DataTypes.STRING,
 			allowNull: true
 		},
 		game: {
-			type: DataTypes.STRING,
-			
+			type: DataTypes.STRING	
 		},
 		language: {
-			type: DataTypes.STRING,
-		
+			type: DataTypes.STRING
 		},
 	},
 			//Linking the users with the brands
