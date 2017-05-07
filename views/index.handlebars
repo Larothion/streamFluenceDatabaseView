@@ -88,19 +88,22 @@
 
 <!--Unordered List -->
 
+                                        <ul>
+
                                                 {{#each users}}
 
                                                     {{#if this.active_user}}
 
-                                                        <ul>
-                                                            <li>{{this.display_name}}</td>
-                                                            <li>{{this.followers}}</td>
-                                                            <li>{{this.views}}</td>
-                                                        </ul>
+                                                        
+                                                            <li>{{this.display_name}}</li>
+                                                           
+                                                        
 
                                                     {{/if}}
 
                                                 {{/each}}
+
+                                        </ul>
 
 <!--Unordered List -->
 
