@@ -92,45 +92,25 @@
                                     <div class="table-responsive">
                                         <table class="table table-bordered table-hover table-striped">
                                             <thead>
+                                               
                                                 <tr>
                                                     <th>Influencer</th>
                                                     <th>Followers</th>
-                                                    <th>Last Streamed</th>
-                                                  <!--   <th>Amount</th> -->
+                                                    <th>Total Views</th>
+                                    
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                 
+                                                 {{#each Users}}
+
                                                 <tr>
-                                                    <td>3326</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:29 PM</td>
-                                               <!--      <td>$321.33</td> -->
-                                                </tr>
-                                                <tr>
-                                                    <td>3325</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:20 PM</td>
-                                              <!--       <td>$234.34</td> -->
-                                                </tr>
-                                                <tr>
-                                                    <td>3324</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:03 PM</td>
-                                                 <!--    <td>$724.17</td> -->
-                                                </tr>
-                                                <tr>
-                                                    <td>3323</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:00 PM</td>
-                                                <!--     <td>$23.71</td> -->
-                                                </tr>
-                                                <tr>
-                                                    <td>3322</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>2:49 PM</td>
-                                              <!--       <td>$8345.23</td> -->
+                                                    <td>{{this.display_name}}</td>
+                                                    <td>{{this.followers}}</td>
+                                                    <td>{{this.views}}</td>
                                                 </tr>
 
+                                                {{/each}}
 
                                             </tbody>
                                         </table>
@@ -198,24 +178,3 @@
         </div>
         <!-- end page-wrapper -->
 
-
-         
-
-
-        
-<div class="container">
-	<div class="row">
-		<div class="col-xs-12 text-center" id="top-bar">
-			<h1> StreamFluence Dashboard </h1>
-		</div>
-			<div class="row">
-			  {{#each influencer_data}}
-				<div class="col-xs-12 text-center">
-					<pre>{{this.influencer_id}}  Name: {{this.display_name}} <br> Followers: {{this.followers}}
-					
-					</pre>
-				</div>	
-			  {{/each}}
-			</div>
-	</div>
-</div>
