@@ -6,28 +6,33 @@ module.exports = function(app) {
 
 	/*StreamFluence API*/
 		app.get("/", function(req, res) {
-				res.render("index");
+				db.User.findAll({}).then(function(results) {
+					res.render("index", {users: results});
+				});
+
+
 		});
 
-		app.get("/dashboard", function(req, res) {
+		app.get("/addinfluencer", function(req, res) {
 			console.log("Displaying Tables");
 				db.User.findAll({}).then(function(results) {
-					res.render("index", {influencer_data: results});
+					res.render("addinfluencer", {users: results});
 				});
 		});
 
 
 	/*TWITCH API*/
 
-	app.get("/api/twitch/channel/:channel?", function(req, res) {
+	app.get("/api/addinfluencer", function(req, res) {
 				
-		
+			var influencer_name = req.query['influencer_name'];
 			var options = { method: 'GET',
-				  url: 'https://api.twitch.tv/kraken/channels/' + req.params.channel,
+				  url: 'https://api.twitch.tv/kraken/channels/' + influencer_name,
 				  qs: { client_id: 'fko5hnqrupt7b2tw6jfs93e7gn7gcu' },
 				  headers: 
 				   { 'postman-token': '1cb2bec7-b28d-789a-cb96-a67dbfc840a6',
 				     'cache-control': 'no-cache' } };
+			console.log("This is the name: " + influencer_name);
 
 			request(options, function (error, response, body) {
 			  if (error) throw new Error(error);
@@ -46,9 +51,10 @@ module.exports = function(app) {
 					language: info.language
 
 				}).then(function(results){
-				res.redirect("/dashboard");
+				res.redirect("/");
 			});
 
 			 });
 	   });
 	};
+
