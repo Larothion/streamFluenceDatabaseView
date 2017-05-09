@@ -86,10 +86,11 @@ $(function() {
         }],
         resize: true,
         colors: [
-                    '##FF0000',
-                    '#39B580',
+                    '#FF0000',
+                    '#4B0082',
                     '#67C69D',
-                    '#95D7BB'
+                    '#1E90FF',
+                    '#696969'
                   ]
         // pointFillColors: #FF0000,
 
