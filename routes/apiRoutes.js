@@ -56,5 +56,21 @@ module.exports = function(app) {
 
 			 });
 	   });
+
+
+	/*	I need to find the total influencers on a campaign, */
+
+		app.get("/", function(req, res) {
+				db.User.findAll({attributes: [[sequelize.fn('COUNT', sequelize.col('id')), < 0 ]]}).then(function(results) {
+					res.render("index", {total_influencers: results});
+				});
+
+/*	store that information somewhere, */
+
+
+/*	and then display that information to the view.
+*/
+
+
 	};
 
