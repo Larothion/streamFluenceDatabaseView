@@ -157,15 +157,14 @@
                         <div class="panel-body blue">
                             <i class="fa fa-bullhorn fa-3x"></i>
                             <h3 id="total-impressions">
-                               {{#each total_views}}
+                               {{#if total_views}}
 
-                                 {{#if this.active_user}}
+                                 
 
-                                    <p> {{this.total}} </p>
+                                    <p> {{this.total_views}} </p>
+           
 
-                                 {{/if}}
-
-                          {{/each}}
+                                {{/if}}
 
                              </h3>
                         </div>

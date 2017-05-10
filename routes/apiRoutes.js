@@ -17,6 +17,7 @@ module.exports = function(app) {
 						console.log("The total is: " + total);
 					};
 					res.render("index", {users: results, total_views: total});
+					
 				});
 		
 
