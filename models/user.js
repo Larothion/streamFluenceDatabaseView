@@ -32,7 +32,7 @@ module.exports = function(sequelize, DataTypes){
 			allowNull: true
 		},
 		game: {
-			type: DataTypes.STRING,	
+			type: DataTypes.STRING	
 		},
 		language: {
 			type: DataTypes.STRING

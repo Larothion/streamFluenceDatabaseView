@@ -1,5 +1,6 @@
 var db = require("../models");
 var request = require("request");
+var exphbs = require("express-handlebars");
 
 
 module.exports = function(app) {
@@ -7,11 +8,21 @@ module.exports = function(app) {
 	/*StreamFluence API*/
 		app.get("/", function(req, res) {
 				db.User.findAll({}).then(function(results) {
-					res.render("index", {users: results});
+					
+					var total= 0;
+
+					for (i = 0; i < results.length; i++) {
+						console.log(results[i].game);
+						total += results[i].views;
+						console.log("The total is: " + total);
+					};
+					res.render("index", {users: results, total_views: total});
 				});
+		
+
+			});
 
 
-		});
 
 		app.get("/addinfluencer", function(req, res) {
 			console.log("Displaying Tables");
@@ -58,12 +69,9 @@ module.exports = function(app) {
 	   });
 
 
-	/*	I need to find the total influencers on a campaign, */
-
-		app.get("/", function(req, res) {
-				db.User.findAll({attributes: [[sequelize.fn('COUNT', sequelize.col('id')), < 0 ]]}).then(function(results) {
-					res.render("index", {total_influencers: results});
-				});
+/*		I need to find the total influencers on a campaign, 
+*/
+		
 
 /*	store that information somewhere, */
 
@@ -72,5 +80,7 @@ module.exports = function(app) {
 */
 
 
-	};
+};
+
+
 

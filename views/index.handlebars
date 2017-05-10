@@ -138,7 +138,15 @@
                     <div class="panel panel-primary text-center no-boder">
                         <div class="panel-body yellow">
                             <i class="fa fa-users fa-3x"></i>
-                            <h3 id="total-influencers">20,741 </h3>
+                            <h3 id="total-influencers">
+                             {{#if users}}
+                        
+                                <p><strong> {{../users.length}}</strong></p>
+
+                            {{/if}}
+
+
+                            </h3>
                         </div>
                         <div class="panel-footer">
                             <span class="panel-eyecandy-title">Total Influencers
@@ -148,7 +156,18 @@
                     <div class="panel panel-primary text-center no-boder">
                         <div class="panel-body blue">
                             <i class="fa fa-bullhorn fa-3x"></i>
-                            <h3 id="total-impressions">2,060 </h3>
+                            <h3 id="total-impressions">
+                               {{#each total_views}}
+
+                                 {{#if this.active_user}}
+
+                                    <p> {{this.total}} </p>
+
+                                 {{/if}}
+
+                          {{/each}}
+
+                             </h3>
                         </div>
                         <div class="panel-footer">
                             <span class="panel-eyecandy-title">Total Impressions
@@ -158,10 +177,21 @@
                     <div class="panel panel-primary text-center no-boder">
                         <div class="panel-body green">
                             <i class="fa fa-thumbs-o-up fa-3x"></i>
-                            <h3 id="average-daily-impressions">20 GB</h3>
+                            <h3 id="average-daily-impressions">
+
+                            {{#each users}}
+
+                                 {{#if this.active_user}}
+
+                                    <p> {{this.game}} </p>
+
+                                 {{/if}}
+
+                          {{/each}}
+                            </h3>
                         </div>
                         <div class="panel-footer">
-                            <span class="panel-eyecandy-title">Average Daily Impressions
+                            <span class="panel-eyecandy-title">Top Games Played
                             </span>
                         </div>
                     </div>
