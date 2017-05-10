@@ -16,8 +16,17 @@ module.exports = function(app) {
 						total += results[i].views;
 						console.log("The total is: " + total);
 					};
-					res.render("index", {users: results, total_views: total});
-					
+					var cost = 500;
+					var cpmUnrounded =  ((cost/total)*1000);
+					var CPM = cpmUnrounded.toFixed(2)
+					console.log(CPM);
+
+
+/*					ROI% = (20CPM(hard coded) - ?CPM(brand’s var CPM) ) / ?CPM * 100*/
+					var roiUnrounded = ((20 - CPM)/(CPM*100))*100;
+					var ROI = roiUnrounded.toFixed(2);
+					res.render("index", {users: results, total_views: total, cpm: CPM, roi:ROI});
+
 				});
 		
 

@@ -40,7 +40,15 @@
                             <br>
                                 <b>CPM</b>
                                     <br>
-                                        <div id="cpm">CPM Placeholder</div>
+                                        <div id="cpm">
+                                            {{#if cpm}}
+
+                                            <p> {{this.cpm}} </p>
+
+                                            {{/if}}
+        
+
+                                        </div>
                     </div>
                 </div>
 
@@ -50,7 +58,16 @@
                             <br>
                                 <b>ROI</b>
                                     <br>
-                                        <div id="roi">ROI Placeholder</div>
+                                        <div id="roi">
+
+                                         {{#if roi}}
+
+                                            <p> {{this.roi}}% </p>
+
+                                            {{/if}}
+        
+
+                                        </div>
                     </div>
                 </div>
              
