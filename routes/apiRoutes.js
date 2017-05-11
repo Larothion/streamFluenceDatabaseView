@@ -8,22 +8,26 @@ module.exports = function(app) {
 	/*StreamFluence API*/
 		app.get("/", function(req, res) {
 				db.User.findAll({}).then(function(results) {
-					
+				/*	Hardcoded Variables*/
 					var total= 0;
+					var cost = 3000;
 
+
+				/*Determines total impressions*/
 					for (i = 0; i < results.length; i++) {
 						console.log(results[i].game);
 						total += results[i].views;
 						console.log("The total is: " + total);
 					};
-					var cost = 500;
+				/*Determines CPM	*/
 					var cpmUnrounded =  ((cost/total)*1000);
 					var CPM = cpmUnrounded.toFixed(2)
 					console.log(CPM);
 
 
-/*					ROI% = (20CPM(hard coded) - ?CPM(brand’s var CPM) ) / ?CPM * 100*/
-					var roiUnrounded = ((20 - CPM)/(CPM*100))*100;
+				/*Determines ROI Percentage*/
+   			    	totalBenefit = (20 * total)/1000
+					var roiUnrounded = (totalBenefit/cost)*100;
 					var ROI = roiUnrounded.toFixed(2);
 					res.render("index", {users: results, total_views: total, cpm: CPM, roi:ROI});
 
@@ -33,7 +37,7 @@ module.exports = function(app) {
 			});
 
 
-
+		/*Goes to the addinfluencer view*/
 		app.get("/addinfluencer", function(req, res) {
 			console.log("Displaying Tables");
 				db.User.findAll({}).then(function(results) {
@@ -91,6 +95,3 @@ module.exports = function(app) {
 
 
 };
-
-
-
