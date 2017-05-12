@@ -23,11 +23,15 @@ module.exports = function(sequelize, DataTypes){
 			type: DataTypes.STRING
 		},
 		password: {
-			type: DataTypes.StRING,
+			type: DataTypes.STRING,
 			allowNull: false,
 			validate: {
 				len: [5]
 			}
+		},
+		loggedIn: {
+			type: DataTypes.BOOLEAN,
+			defaultValue: false,
 		},
 	},
 		{
