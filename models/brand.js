@@ -22,6 +22,17 @@ module.exports = function(sequelize, DataTypes){
 		company_logo: {
 			type: DataTypes.STRING
 		},
+		password: {
+			type: DataTypes.STRING,
+			allowNull: false,
+			validate: {
+				len: [5]
+			}
+		},
+		loggedIn: {
+			type: DataTypes.BOOLEAN,
+			defaultValue: false,
+		},
 	},
 		{
       		classMethods: {
