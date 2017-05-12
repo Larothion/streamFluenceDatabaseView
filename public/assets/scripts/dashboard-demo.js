@@ -31,35 +31,16 @@ $(document).ready(function() {
         }, {
             label: "Pyroelementalist",
             value: 2944973
-        /*}, {
-            label: "Camobear",
-            value: 40672
-        }, {
-            label: "Squillakilla",
-            value: 988972*/
-        }]
-    //  morris donut chart on dashboard///
-    createDonut(initalData);
-    $("#test").on("click", function(event){
-        $("#morris-donut-chart").empty();
-        var newData = [ {
-            label: "Deyusha",
-            value: 2804598
-        }, {
-            label: 'Hotform',
-            value: 4388616
-        }, {
-            label: "Pyroelementalist",
-            value: 2944973
         }, {
             label: "Camobear",
             value: 40672
         }, {
             label: "Squillakilla",
             value: 988972
-        }];
-        createDonut(newData);
-    });
+        }]
+    //  morris donut chart on dashboard///
+    createDonut(initalData);
+  
 });
 
 

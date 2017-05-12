@@ -87,15 +87,30 @@ module.exports = function(app) {
 	   });
 
 
-/*		I need to find the total influencers on a campaign, 
-*/
-		
-
-/*	store that information somewhere, */
 
 
-/*	and then display that information to the view.
-*/
+
+
+
+  // If a user sends data to add a new brand
+  app.post("/admin/brand", function(req, res) {
+
+    // Take the request...
+    var newBrand = req.body;
+    console.log(newBrand);
+    // Create a routeName
+    var routeName = newBrand.brand_name.replace(/\s+/g, "").toLowerCase();
+
+    // Then add the character to the database using sequelize
+    db.Brand.create({
+      routeName: routeName,
+      brand_name: newBrand.brand_name,
+      email: newBrand.email,
+      password: newBrand.password,
+ 
+    });
+
+  });
 
 
 };

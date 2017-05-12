@@ -2,7 +2,7 @@
             <div class="row">
                  <!-- page header -->
                 <div class="col-lg-12">
-                    <h1 class="page-header">Add Influencer</h1>
+                    <h1 class="page-header">Add an Influencer or Brand</h1>
                 </div>
                 <!--end page header -->
             </div>
@@ -16,10 +16,30 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" method="get" action="/addinfluencer">
+                                    <form role="form" >
                                         <div class="form-group">
                                           <input type="text" name="influencer_name">
                                          <input type="submit">
+                                        
+                                        </div>
+                                    </form>
+                                    </div>
+                                 </div>
+                              </div>
+                        </div>
+                         <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Enter a Brand Name
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form action="/admin/brand" method="POST" role="form" >
+                                        <div class="form-group"><br>
+                                          Name:<br> <input type="text" name="brand_name"><br><br>
+                                          Email:<br> <input type="text" name="email"><br><br>
+                                          Password:<br> <input type="text" name="password"><br><br>
+                                          <input type="submit">
                                         
                                         </div>
                                     </form>
