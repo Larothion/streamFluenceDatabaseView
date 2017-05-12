@@ -5,6 +5,10 @@ var exphbs = require("express-handlebars");
 
 module.exports = function(app) {
 
+		app.get("/login", function(req, res) {
+			res.render("login.html");
+		});
+
 	/*StreamFluence API*/
 		app.get("/", function(req, res) {
 				db.User.findAll({}).then(function(results) {
