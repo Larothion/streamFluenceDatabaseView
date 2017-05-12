@@ -52,6 +52,7 @@
     </div>
 
     <script>
+    console.log("linked");
 
         $('.login_form').on('submit', function () {
 
@@ -61,8 +62,17 @@
             console.log(form_email);
             console.log(form_password);
 
+            /*Admin Authentication*/
         if (form_password = "admin") {
-                res.render("index", {users: results, total_views: total, cpm: CPM, roi:ROI});
+                res.redirect("/main");
+            } else
+        {
+            console.log("Wrong Password")
+            };
+
+           /* Brand Authentication*/
+          if (form_email = "monster@gmail.com" && form_password = "monster") {
+                res.redirect("/main");
             } else
         {
             console.log("Wrong Password")
