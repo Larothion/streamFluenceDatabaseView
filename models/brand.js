@@ -23,9 +23,9 @@ module.exports = function(sequelize, DataTypes){
 		},
 		password: {
 			type: DataTypes.STRING,
+
 			allowNull: false
-		}   
-	},
+		},   
 		{
       		classMethods: {
         		associate: function(models) {

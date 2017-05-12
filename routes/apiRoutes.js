@@ -5,8 +5,12 @@ var exphbs = require("express-handlebars");
 
 module.exports = function(app) {
 
-	/*StreamFluence API*/
 		app.get("/", function(req, res) {
+			res.render("login");
+		});
+
+	/*StreamFluence API*/
+		app.get("/main", function(req, res) {
 				db.User.findAll({}).then(function(results) {
 				/*	Hardcoded Variables*/
 					var total= 0;
@@ -76,7 +80,7 @@ module.exports = function(app) {
 					language: info.language
 
 				}).then(function(results){
-				res.redirect("/");
+				res.redirect("/main");
 			});
 
 			 });
