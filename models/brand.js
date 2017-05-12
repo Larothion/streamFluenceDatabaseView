@@ -1,13 +1,12 @@
-'use strict';
-
 //Exports the brand model to the pages that need the tables.
 module.exports = function(sequelize, DataTypes){
 	//For the Brands table.
 	var Brand = sequelize.define("Brand",{
 		brand_name: {
 			type: DataTypes.STRING,
-			allowNull: false
-		
+			validate: {
+				len: [1]
+			}
 		},
 		//Is this brand active? Default is true.
 		active: {
@@ -16,25 +15,27 @@ module.exports = function(sequelize, DataTypes){
 		},
 		email: {
 			type: DataTypes.STRING,
-			allowNull: false
+				allowNull: false
 		},
 		company_logo: {
 			type: DataTypes.STRING
 		},
 		password: {
 			type: DataTypes.STRING,
-
-			allowNull: false
-		},   
+			allowNull: false,
+		},
+		loggedIn: {
+			type: DataTypes.BOOLEAN,
+			defaultValue: false,
+		},
+	},
 		{
       		classMethods: {
         		associate: function(models) {
                		Brand.belongsToMany(models.User, {
                			as: "adSource",
                			through: "brand_influencers",
-						foreignKey:  {
-							allowNull: false
-						}
+						foreignKey: "userId"
 					});
 				}
         	}
