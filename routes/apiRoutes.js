@@ -79,6 +79,8 @@ module.exports = function(app) {
 					twitch_id: info._id,
 					language: info.language
 
+				}).then(function(User){
+					User.setBrands([1]);
 				}).then(function(results){
 				res.redirect("/main");
 			});

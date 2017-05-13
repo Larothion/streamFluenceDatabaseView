@@ -42,10 +42,9 @@ module.exports = function(sequelize, DataTypes){
 		{
 			classMethods: {
 				associate: function(models){
-					User.belongsToMany(models.Brand,{
-						as: "Influencers", 
+					User.belongsToMany(models.Brand,{ 
 						through: "brand_influencers",
-						foreignKey: "brandId"
+						foreignKey: "userId"
 					});
 				}
 			}
