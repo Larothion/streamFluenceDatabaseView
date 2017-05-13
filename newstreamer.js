@@ -9,11 +9,11 @@ nightmare
 	.click('#addPerson')
 	.wait('.table')
 	.evaluate(function(){
-		return document.querySelector('.table').href;
+		return document.querySelector('.table');
 	})
 	.end()
 	.then(function(result){
-		console.log(result +"\n We passed the test!");
+		console.log(result +" We passed the test!");
 	})
 	.catch(function(error){
 		console.error("Something went wrong with the test: ", error)
