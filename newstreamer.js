@@ -2,8 +2,9 @@
 var Nightmare = require('nightmare');		
 var nightmare = Nightmare({ show: true });
 
+//This should result in the person being added to the table on the main screen.
 nightmare
-	.goto("https://"/*rest of heroku url needs to go here*/)
+	.goto("https://fast-lake-48436.herokuapp.com/")
 	.type('form[action="/api/addinfluencer"]', 'vexxgaming')
 	.click('#addPerson')
 	.wait('.table')
