@@ -4,7 +4,7 @@ var nightmare = Nightmare({ show: true });
 
 nightmare
 	.goto("https://"/*rest of heroku url needs to go here*/)
-	.type('form[action="/api/addinfluencer"]', '')
+	.type('form[action="/api/addinfluencer"]', 'vexxgaming')
 	.click('#addPerson')
 	.wait('.table')
 	evaluate(function(){
