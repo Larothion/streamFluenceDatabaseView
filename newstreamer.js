@@ -8,7 +8,7 @@ nightmare
 	.type('form[action="/api/addinfluencer"]', 'vexxgaming')
 	.click('#addPerson')
 	.wait('.table')
-	evaluate(function(){
+	.evaluate(function(){
 		return document.querySelector('.table').href;
 	})
 	.end()
