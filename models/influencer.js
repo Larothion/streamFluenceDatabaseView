@@ -1,6 +1,6 @@
 //Sends the Users table where it needs to go.
 module.exports = function(sequelize, DataTypes){
-	var User = sequelize.define("User",{
+	var Influencer = sequelize.define("Influencer",{
 		display_name: {
 			type: DataTypes.STRING,
 			validate: {
@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes){
 			}
 		},
 		//If the User is active or not. Default is true.
-		active_user: {
+		active_influencer: {
 			type: DataTypes.BOOLEAN,
 			defaultValue: true
 		},
@@ -27,7 +27,7 @@ module.exports = function(sequelize, DataTypes){
 		twitch_url: {
 			type: DataTypes.STRING	
 		},
-		user_logo: {
+		influencer_logo: {
 			type: DataTypes.STRING,
 			allowNull: true
 		},
@@ -37,18 +37,6 @@ module.exports = function(sequelize, DataTypes){
 		language: {
 			type: DataTypes.STRING
 		},
-	},
-			//Linking the users with the brands
-		{
-			classMethods: {
-				associate: function(models){
-					User.belongsToMany(models.Brand,{ 
-						through: "brand_influencers",
-						foreignKey: "userId"
-					});
-				}
-			}
-		}
-	);
-	return User;
+	});
+	return Influencer;
 }

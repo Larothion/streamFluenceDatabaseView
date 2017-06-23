@@ -1,6 +1,6 @@
 var db = require("../models");
 var request = require("request");
-var exphbs = require("express-handlebars");
+
 
 
 module.exports = function(app) {
@@ -11,41 +11,15 @@ module.exports = function(app) {
 
 	/*StreamFluence API*/
 		app.get("/main", function(req, res) {
-				db.User.findAll({}).then(function(results) {
-				/*	Hardcoded Variables*/
-					var total= 0;
-					var cost = 3000;
-
-
-				/*Determines total impressions*/
-					for (i = 0; i < results.length; i++) {
-						console.log(results[i].game);
-						total += results[i].views;
-						console.log("The total is: " + total);
-					};
-				/*Determines CPM	*/
-					var cpmUnrounded =  ((cost/total)*1000);
-					var CPM = cpmUnrounded.toFixed(2)
-					console.log(CPM);
-
-
-				/*Determines ROI Percentage*/
-   			    	totalBenefit = (20 * total)/1000
-					var roiUnrounded = (totalBenefit/cost)*100;
-					var ROI = roiUnrounded.toFixed(2);
-					res.render("index", {users: results, total_views: total, cpm: CPM, roi:ROI});
-
+				db.Influencer.findAll({});
 				});
-		
-
-			});
 
 
 		/*Goes to the addinfluencer view*/
 		app.get("/addinfluencer", function(req, res) {
 			console.log("Displaying Tables");
-				db.User.findAll({}).then(function(results) {
-					res.render("addinfluencer", {users: results});
+				db.Influencer.findAll({}).then(function(results) {
+					res.render("addinfluencer", {influencers: results});
 				});
 		});
 
@@ -69,50 +43,20 @@ module.exports = function(app) {
 
 
 
-				db.User.create({
+				db.Influencer.create({
 					display_name: info.display_name,
 					followers: info.followers,
 					views: info.views,
 					game: info.game,
-					user_logo: info.logo,
+					influencer_logo: info.logo,
 					twitch_url: info.url,
 					twitch_id: info._id,
 					language: info.language
 
-				}).then(function(User){
-					User.setBrands([1]);
 				}).then(function(results){
-				res.redirect("/main");
+				res.redirect("/");
 			});
 
 			 });
 	   });
-
-
-
-
-
-
-
-  // If a user sends data to add a new brand
-  app.post("/admin/brand", function(req, res) {
-
-    // Take the request...
-    var newBrand = req.body;
-    console.log(newBrand);
-    // Create a routeName
-    var routeName = newBrand.brand_name.replace(/\s+/g, "").toLowerCase();
-
-    // Then add the character to the database using sequelize
-    db.Brand.create({
-      routeName: routeName,
-      brand_name: newBrand.brand_name,
-      email: newBrand.email,
-      password: newBrand.password,
- 
-    });
-
-  });
-
-
 };

@@ -15,10 +15,6 @@ app.use(bodyParser.text());
 
 // override with POST having ?_method=DELETE
 app.use(methodOverride("_method"));
-var exphbs = require("express-handlebars");
-
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
 
 var routes = require("./routes/apiRoutes")(app);
 var db = require("./models");
@@ -35,9 +31,6 @@ db.sequelize.sync().then(function() {
 app.set('views', path.join(__dirname, 'views'));
 //set up handlebars
 
-app.engine('handlebars', exphbs({
-    defaultLayout: 'main'
-}));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));

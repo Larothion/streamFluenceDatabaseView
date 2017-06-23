@@ -1,0 +1,71 @@
+
+
+.top-title {
+	border: 1px solid black;
+}
+
+.logo {
+	width: 250px;
+	height: 70px;
+}
+
+.main-content {
+	height: 1200px;
+}
+
+.nav-side {
+	height: 800px;
+	border: 5px solid #cccccc;
+	background-color: #202020;
+}
+
+.side-nav-outline {
+	font-size: 20px;
+	margin-top: 20px;
+	width: 100%;
+	text-align: center;
+	background-color: #5f4292;
+	color: white;
+
+}
+
+.side-nav-buttons {
+	margin: 0px;
+	padding: 5px;
+	border: 3px solid #0c0c0c;
+}
+
+.side-nav-buttons:hover {
+	background-color: #3d3d5c;
+}
+
+.applicant-section {
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	padding: 8px;
+}
+
+.applicant-data {
+	border-right: 2px solid black;
+}
+
+.app-buttons {
+	margin: 5px;
+	font-size: 17px;
+	padding: 7px;
+}
+
+.panel {
+	border: 1px solid black;
+}
+
+.panelHeading {
+	background-color: #5f4292;
+	height: 40px;
+	color: white;
+	padding: 7px;
+}
+
+.panel-title {
+	font-size: 17px;
+}
