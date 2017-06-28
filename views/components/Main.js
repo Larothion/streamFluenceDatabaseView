@@ -49,6 +49,28 @@ var Main = React.createClass({
               </div>
           </div>
           <div className="col-lg-10 main-content">
+             <div className="panelHeading">
+                <div className="row">
+                  <div className="col-md-3">
+                    <h3 className="panel-title text-center">Username </h3>
+                  </div>
+                  <div className="col-md-2">
+                    <h3 className="panel-title text-center">Email</h3>
+                  </div>
+                  <div className="col-md-1">
+                    <h3 className="panel-title text-center">Followers</h3>
+                  </div>
+                  <div className="col-md-2">
+                    <h3 className="panel-title text-center">Total Views</h3>
+                  </div>
+                  <div className="col-md-2">
+                    <h3 className="panel-title text-center">Game</h3>
+                  </div>
+                  <div className="col-md-2">
+                    <h3 className="panel-title text-center">Language</h3>
+                  </div>
+                </div>
+          </div>
               {this.state.currentState}
          </div>
         </div>  
