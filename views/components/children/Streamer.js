@@ -1,4 +1,5 @@
 import React from "react";
+import Results from "./Results";
 
 const Streamer = function(props) { 
 
@@ -27,8 +28,8 @@ return (
                         </div> 
                     </div> 
                   <div>
-                    <button className="btn-lg btn-success app-buttons" > Accepted </button>
-                    <button className="btn-lg btn-danger app-buttons"> Declined </button>
+                    <button className="btn-lg btn-success app-buttons" onClick={props.onClick} > Accepted </button>
+                    <button className="btn-lg btn-danger app-buttons" onClick={props.onClick}> Declined </button>
                   </div>
             </div>
             </div>
